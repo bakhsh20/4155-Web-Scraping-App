@@ -1,5 +1,5 @@
-from turtle import title
 import scrapy
+from scrapy.crawler import CrawlerProcess
 
 # Create an class for the faculty spider that inherits the scrapy spider characteristics
 class FacultySpider(scrapy.Spider):
@@ -7,19 +7,32 @@ class FacultySpider(scrapy.Spider):
   name = 'facultyspider'
 
   # URls we will be scraping
-  start_urls = ['https://pages.charlotte.edu/connections/group/cci/']
+  start_urls = ['https://cci.charlotte.edu/directory/faculty']
 
   # Parse the page that is provide by the start_url. Get the names for each page. 
   def parse(self, response):
-    for titles in response.css('h2.entry-title'):
+    for titles in response.css('span.field-content'):
       yield{
-        'facultyName' : titles.css('a::text').get(),
+        'facultyName' : titles.css('h3::text').get(),
       }
 
     # get the link for the next page. 
-    next_page = response.css('a.nextpostslink').attrib['href']
+    next_page = response.css('li.next a::attr(href)').get()
 
     # If there is a next page for the website, follow it and callback the function to 
     # parse the page for the names
     if next_page is not None:
       yield response.follow(next_page, callback=self.parse)
+
+# # Run scrapy from script instead of a command line call. Provide 
+# # settings for creating a json file with data. 
+# process = CrawlerProcess(settings={
+#     "FEEDS": {
+#         "cciFaculty.json": {"format": "json"},
+#     },
+# })
+
+# # Start the crawl. 
+# process.crawl(FacultySpider)
+# process.start()
+
