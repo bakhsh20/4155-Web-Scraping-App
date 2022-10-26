@@ -15,5 +15,3 @@ keywords = rake_nltk_var.get_ranked_phrases()
 
 # print list
 print(keywords)
-
-# Run file to run the code and see the output. 
