@@ -24,15 +24,4 @@ class FacultySpider(scrapy.Spider):
     if next_page is not None:
       yield response.follow(next_page, callback=self.parse)
 
-# # Run scrapy from script instead of a command line call. Provide 
-# # settings for creating a json file with data. 
-# process = CrawlerProcess(settings={
-#     "FEEDS": {
-#         "cciFaculty.json": {"format": "json"},
-#     },
-# })
-
-# # Start the crawl. 
-# process.crawl(FacultySpider)
-# process.start()
 
