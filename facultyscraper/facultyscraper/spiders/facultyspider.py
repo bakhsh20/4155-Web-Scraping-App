@@ -23,5 +23,3 @@ class FacultySpider(scrapy.Spider):
     # parse the page for the names
     if next_page is not None:
       yield response.follow(next_page, callback=self.parse)
-
-
