@@ -102,7 +102,6 @@ class ChemistryScraper(scrapy.Spider):
             'description': keywordList
         }
 
-
 # Adjust crawler settings for biology department. 
 process = CrawlerProcess(settings={
     "FEEDS": {
@@ -110,10 +109,11 @@ process = CrawlerProcess(settings={
     },
 })
 
-process.start()
-
 # Call the biology scraper
 process.crawl(BiologyScraper)
+process.start()
+
+
 
 # Adjust crawler settings for the chemistry department.
 process = CrawlerProcess(settings={
