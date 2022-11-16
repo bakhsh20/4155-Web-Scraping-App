@@ -1,6 +1,7 @@
 import scrapy
 from rake_nltk import Rake
 from bs4 import BeautifulSoup
+from scrapy.crawler import CrawlerProcess
 
 # Create rake_nltk object.
 rake_nltk_var = Rake(
@@ -62,3 +63,16 @@ class CCIDepartmentSpider(scrapy.Spider):
             'title': tempTitle.css('div.field-item::text').get(),
             'description': keywordList
         }
+
+# Adjust settings for CCI department crawler
+process = CrawlerProcess(settings={
+    "FEEDS": {
+        "CCI.json": {"format": "json"},
+    },
+})
+
+# Start crawler
+process.crawl(CCIDepartmentSpider)
+
+# Script gets blocked until entire crawling job is finished
+process.start()
