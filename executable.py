@@ -1,6 +1,5 @@
 #import OS package
 import os
-import nltk
 
 #install rake_nltk onto system for keyword processor
 os.system('cmd /c "pip install rake_nltk"')
