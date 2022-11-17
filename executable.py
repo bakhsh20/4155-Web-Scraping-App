@@ -32,6 +32,5 @@ os.chdir('./facultyscraper/facultyscraper/spiders')
 #run CCIDepartmentSpider, print to json
 os.system('cmd /c "python CCIDepartmentSpider.py"')
 
-#run descriptions-spider, print to json
-#os.system('cmd /c "python -m scrapy crawl facultyDescriptionSpider -O descriptions.json"')
+
 
