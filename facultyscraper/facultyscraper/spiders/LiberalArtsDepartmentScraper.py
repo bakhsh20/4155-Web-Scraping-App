@@ -78,8 +78,7 @@ class ChemistryScraper(scrapy.Spider):
             'div.field.field-name-field-directory-biography')
 
         # Clean the raw html to text
-        text = BeautifulSoup(tempDescription.css(
-            'div.field-item').get()).get_text()
+        text = BeautifulSoup(tempDescription.css('div.field-item').get()).get_text()
 
         # Extract keywords from the text content of each biography section
         rake_nltk_var.extract_keywords_from_text(text)
@@ -102,25 +101,19 @@ class ChemistryScraper(scrapy.Spider):
             'description': keywordList
         }
 
-# Adjust crawler settings for biology department. 
-process = CrawlerProcess(settings={
-    "FEEDS": {
-        "Biology.json": {"format": "json"},
-    },
-})
-
-# Call the biology scraper
-process.crawl(BiologyScraper)
-process.start()
-
-
 
 # Adjust crawler settings for the chemistry department.
 process = CrawlerProcess(settings={
     "FEEDS": {
-        "Chemistry.json": {"format": "json"},
+        "LiberalArts.csv": {"format": "csv"},
+
     },
 })
 
+process.crawl(BiologyScraper)
 process.crawl(ChemistryScraper)
 process.start()
+
+
+
+
