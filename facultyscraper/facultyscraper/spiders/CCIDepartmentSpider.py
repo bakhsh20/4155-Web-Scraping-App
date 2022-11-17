@@ -64,15 +64,13 @@ class CCIDepartmentSpider(scrapy.Spider):
             'description': keywordList
         }
 
-# Adjust settings for CCI department crawler
+# Adjust crawler settings for the department.
 process = CrawlerProcess(settings={
     "FEEDS": {
-        "CCI.json": {"format": "json"},
+        "CCIDepartment.csv": {"format": "csv"},
+
     },
 })
 
-# Start crawler
 process.crawl(CCIDepartmentSpider)
-
-# Script gets blocked until entire crawling job is finished
 process.start()
