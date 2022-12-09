@@ -18,9 +18,21 @@ os.system('cmd /c "Python -m nltk.downloader punkt"')
 
 os.chdir('facultyscraper/facultyscraper/spiders')
 
-# run CCIDepartmentSpider, print to json
+# run crawlers, print to json
 os.system('cmd /c "python CCIDepartmentSpider.py"')
 
 os.system('cmd /c "python LiberalArtsDepartmentScraper.py"')
+
+os.system('cmd /c "python CHHSDepartmentScraper.py"')
+
+os.system('cmd /c "python CollegeOfArtsArchitecture.py"')
+
+os.system('cmd /c "python CollegeOfBusinessScraper.py"')
+
+os.system('cmd /c "python CollegeOfEducationScraper.py"')
+
+os.system('cmd /c "python EngineeringDeptScraper.py"')
+
+
 
 
