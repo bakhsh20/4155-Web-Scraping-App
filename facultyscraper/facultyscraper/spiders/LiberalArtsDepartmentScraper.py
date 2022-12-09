@@ -3,6 +3,7 @@ from scrapy.crawler import CrawlerProcess
 from rake_nltk import Rake
 from bs4 import BeautifulSoup
 
+# Rake NLTK Settings
 rake_nltk_var = Rake(
     min_length=1,
     max_length=3,
@@ -862,6 +863,7 @@ process = CrawlerProcess(settings={
     },
 })
 
+# Call Scrapers and Run
 process.crawl(AfricanStudiesScraper)
 process.crawl(AnthropologyScraper)
 process.crawl(BiologyScraper)

@@ -257,6 +257,7 @@ process = CrawlerProcess(settings={
     },
 })
 
+# Call Scrapers and run
 process.crawl(CounselingScraper)
 process.crawl(EducationalLeadershipScraper)
 process.crawl(MDSKScraper)

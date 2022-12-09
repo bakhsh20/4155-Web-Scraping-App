@@ -3,6 +3,9 @@ from rake_nltk import Rake
 from bs4 import BeautifulSoup
 from scrapy.crawler import CrawlerProcess
 
+
+# ALL OF THE FACULTY OF THE CCI COLLEGE ARE UNDER ONE PAGE
+
 # Create rake_nltk object.
 rake_nltk_var = Rake(
     min_length=1,
@@ -72,5 +75,6 @@ process = CrawlerProcess(settings={
     },
 })
 
+# Call scrapers and run
 process.crawl(CCIDepartmentSpider)
 process.start()
