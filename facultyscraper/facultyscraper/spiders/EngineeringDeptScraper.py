@@ -56,6 +56,7 @@ class CivEnvironScraper(scrapy.Spider):
 
         # Creates object with properities for the name, title, descriptions(which is keyword list)...
         yield {
+            'department' : 'Civil Engineering',
             'name': response.css('h1.page-header::text').get(),
             'title': tempTitle.css('div.field-item::text').get(),
             'description': keywordList
@@ -104,6 +105,7 @@ class ElecCompScraper(scrapy.Spider):
 
         # Creates object with properities for the name, title, descriptions(which is keyword list)...
         yield {
+            'department' : 'Electrical and Computer Engineering',
             'name': response.css('h1.page-header::text').get(),
             'title': tempTitle.css('div.field-item::text').get(),
             'description': keywordList
@@ -152,6 +154,7 @@ class TechConstScraper(scrapy.Spider):
 
         # Creates object with properities for the name, title, descriptions(which is keyword list)...
         yield {
+            'Department' : 'Engineering Technology',
             'name': response.css('h1.page-header::text').get(),
             'title': tempTitle.css('div.field-item::text').get(),
             'description': keywordList
@@ -200,6 +203,7 @@ class MechEngScraper(scrapy.Spider):
 
         # Creates object with properities for the name, title, descriptions(which is keyword list)...
         yield {
+            'department' : 'Mechanical Engineering',
             'name': response.css('h1.page-header::text').get(),
             'title': tempTitle.css('div.field-item::text').get(),
             'description': keywordList
@@ -248,6 +252,7 @@ class SysEngScraper(scrapy.Spider):
 
         # Creates object with properities for the name, title, descriptions(which is keyword list)...
         yield {
+            'department' : 'Systems Engineering and Engineering Management',
             'name': response.css('h1.page-header::text').get(),
             'title': tempTitle.css('div.field-item::text').get(),
             'description': keywordList
